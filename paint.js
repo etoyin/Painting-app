@@ -13,10 +13,12 @@ context.lineWidth = 1;
 
 //offsetLeft returns the number of pixels that are on the left
 //left side of the element.
-//clientX returns the X coordinates of the mouse pointer.
+//pageX returns the X coordinates of the mouse pointer.
 //subtraction here signifies mouse position relative to the 
 //canvas element so as to determine the point we want start from
 //on th canvas
+
+
 var draw = function(e){
 
  
@@ -57,6 +59,10 @@ canvas.addEventListener('mousedown', function(){
 var changeColor = function(color){
 	context.strokeStyle = color;
 	context.fillStyle = color;
+}
+
+var reloadClear = function(){
+	location.reload();
 }
 
 var clearCanvas = function(){
@@ -104,11 +110,34 @@ var mousemove = function(e){
 var drawRect = function() {
   context.fillRect(rect.startX, rect.startY, rect.w, rect.h);
 };
+	
+
+
+	
+		function drawEllipse(context, x, y, w, h, e){
+			var x = Math.min(xPos, e.pageX);
+					y = Math.min(yPos, e.pageY),
+					w = Math.abs(xPos - e.pageX),
+					h = Math.abs(yPos - e.pageY),
 
 
 
-
-
-
+  			 	kappa = .5522848;
+      		ox = (w / 2) * kappa, // control point offset horizontal
+      		oy = (h / 2) * kappa, // control point offset vertical
+      		xe = x + w,           // x-end
+      		ye = y + h,           // y-end
+      		xm = x + w / 2,       // x-middle
+      		ym = y + h / 2;       // y-middle
+ 
+  context.beginPath();
+  context.moveTo(x, ym);
+  context.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
+  context.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
+  context.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
+  context.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
+  context.closePath();
+  context.stroke();
+};
 
 

@@ -2,6 +2,9 @@
 
 *{margin: 0;
 	padding: 0;}
+body{
+	background-image: url('back3.jpg');
+}
 
 section{
 	border: 1px solid black;
@@ -13,6 +16,7 @@ canvas{
 	display: block;
 	margin: 10px auto 0px;
 	border:1px solid black;
+	background-color: white;
 }
 
 /*button{
@@ -26,6 +30,7 @@ canvas{
 	height: 130px;
 	margin: 0px auto;
 	border: 1px solid black;
+	background-color: white;
 }
 
 #colors{

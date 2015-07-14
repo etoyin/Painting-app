@@ -19,15 +19,15 @@
 
 	</div>
 	<div id='myOtherTools'>
-			<button id='clearCanvas' title='clear all' onclick='clearCanvas()'>Clear</button>
+			<button id='clearCanvas' title='clear all' onclick='reloadClear()'>Clear</button>
 			<button id='triangle' class='shapes'>Tri</button>
 			<button id='circle' class='shapes'>Cir</button>
-			<button id='ellipse' class='shapes'>Ellip</button>
+			<button id='ellipse' class='shapes' onclick='drawEllipse()'>Ellip</button>
 			<button id='square' class='shapes'>Squ</button>
 			<button id='rectangle' class='shapes' onclick='initRect()'>Rect</button>
 			<button id='eraser' class='shapes' onclick='changeColor("white")'>Eraser</button>
-			<button id='brush' class='shapes' onclick='changeThickness(5)'><strong>B</strong></button>
-			<button id='pencil' class='shapes' onclick='changeThickness(1)'>P</button>
+			<button id='brush' class='shapes' onclick='changeThickness(5)'><img src='brush.png' width='30px'></button>
+			<button id='pencil' class='shapes' onclick='changeThickness(1)'><img src='p.png' width='30px'></button>
 			<button id='fill' class='shapes' onclick='fillCanvas()'>F</button>
 
 
