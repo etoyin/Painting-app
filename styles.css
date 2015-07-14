@@ -1,0 +1,83 @@
+
+
+*{margin: 0;
+	padding: 0;}
+
+section{
+	border: 1px solid black;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+canvas{
+	display: block;
+	margin: 10px auto 0px;
+	border:1px solid black;
+}
+
+/*button{
+	outline: 0;
+	border: 0;
+}*/
+
+
+#myDrawingTools{
+	width:800px;
+	height: 80px;
+	margin: 0px auto;
+	border: 1px solid black;
+}
+
+#colors{
+	width:800px;
+	height:20px;
+}
+#colors button:hover{opacity:0.5;}
+
+#colors button{
+	width:20% ;
+	height:15px;
+	margin-top:5px;
+	float: left;
+}
+#black{
+	background-color: black;
+}
+#yellow{
+	background-color: yellow;
+}
+#red{
+	background-color: red;
+}
+#blue{
+	background-color:blue;
+}
+#green{
+	background-color: green;
+}
+
+
+#myOtherTools{
+	width: 100%;
+	height: 60px;
+}
+
+#clearCanvas{
+	width: 50%;
+	height: 50px;
+	margin-top: 5px;
+	background-color:rgb(60,60,60); 
+	color: white;
+	cursor: pointer;
+	font-size: 30px;
+	font-family: Verdana;
+}
+
+#myOtherTools button:hover{opacity:0.6;}
+
+
+.shapes{
+	margin-top: 3px;
+	width: 30px;
+	height: 40px;
+}
