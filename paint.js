@@ -113,8 +113,7 @@ var drawRect = function() {
 	
 
 
-	
-		function drawEllipse(context, x, y, w, h, e){
+function drawEllipse(context, x, y, w, h, e){
 			var x = Math.min(xPos, e.pageX);
 					y = Math.min(yPos, e.pageY),
 					w = Math.abs(xPos - e.pageX),
@@ -141,3 +140,8 @@ var drawRect = function() {
 };
 
 
+ // To save my canvas image as data url.
+var dataURL = canvas.toDataURL();
+
+//to set canvasImg image src to dataURL so it can be saved as an image
+document.getElementById('canvasImg').src = dataURL;

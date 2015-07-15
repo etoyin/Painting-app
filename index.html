@@ -1,0 +1,49 @@
+<!doctype html>
+
+<html>
+
+<head>
+
+<link rel='stylesheet' type='text/css' href='styles.css'>
+
+</head>
+<body>
+<section>
+<div id='myDrawingTools'>
+	<div id='colors'>
+		<button id='black' onclick='changeColor("black")'></button>
+		<button id='yellow' onclick='changeColor("yellow")'></button>
+		<button id='red' onclick='changeColor("red")'></button>
+		<button id='blue' onclick='changeColor("blue")'></button>
+		<button id='green' onclick='changeColor("green")'></button>
+
+	</div>
+	<div id='myOtherTools'>
+			<button id='clearCanvas' title='clear all' onclick='reloadClear()'>Clear</button>
+			<button id='triangle' class='shapes'>Tri</button>
+			<button id='circle' class='shapes'>Cir</button>
+			<button id='ellipse' class='shapes' onclick='drawEllipse()'>Ellip</button>
+			<button id='rectangle' class='shapes' onclick='initRect()'>Rect</button>
+			<button id='eraser' class='shapes' onclick='changeColor("white")'>Eraser</button>
+			<button id='brush' class='shapes' onclick='changeThickness(5)'><img src='brush.png' width='30px'></button>
+			<button id='pencil' class='shapes' onclick='changeThickness(1)'><img src='p.png' width='30px'></button>
+			<button id='fill' class='shapes' onclick='fillCanvas()'>F</button>
+
+
+
+	</div>
+
+</div>
+
+<canvas id='myCanvas' width='800px' height='400px';>
+	Your browser does not support the HTML5 canvas tag.
+	</canvas>	
+	<img id='canvasImg' alt='Right click to save'>
+			<input id='file' type='file' accept='image/*'>
+
+</section>
+
+<script type='text/javascript' src='paint.js'></script>
+
+</body>
+</html>
