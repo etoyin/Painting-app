@@ -1,11 +1,10 @@
 var canvas = document.getElementById('myCanvas');
 var context = canvas.getContext('2d');
-//an object to used to store the info of the drawing
-rect = {};
-drag = false;
+
 //my drawing line will be in 1px
 
 context.lineWidth = 1;
+
 //this variable will be used to detect whether the mouse button is pressed or not
  down = false;
 
@@ -13,16 +12,17 @@ context.lineWidth = 1;
 
 //offsetLeft returns the number of pixels that are on the left
 //left side of the element.
-//pageX returns the X coordinates of the mouse pointer.
-//subtraction here signifies mouse position relative to the 
-//canvas element so as to determine the point we want start from
-//on th canvas
+// e.pageX holds the position of the mouse relative to the document 
+//this.offsetLeft holds the distance of the canvas’s upper left corner from the closest 
+
+/*subtraction here signifies mouse position relative to the 
+* canvas element so as to determine the point we want start from
+* on th canvas*/
 
 
 var draw = function(e){
 
- 
-	xPos = e.pageX - this.offsetLeft;
+  xPos = e.pageX - this.offsetLeft;
 	yPos = e.pageY - this.offsetTop;
 
 	if(down == true){
@@ -70,7 +70,9 @@ var clearCanvas = function(){
 }
 
 var changeThickness = function(x){
-	context.lineWidth = x
+  //location.reload();
+  console.log('gfffff');
+	context.lineWidth = x;
 }
 
 
@@ -78,13 +80,21 @@ var fillCanvas = function(){
 	context.fillRect(0,0,canvas.width,canvas.height);
 
 };
+var btn = document.getElementById('rectangle')
 
-var initRect = function() {
+
+btn.addEventListener('click', function(){
+  //an object to used to store the info of the drawing
+  rect = {};
+  drag = false;
+
   canvas.addEventListener('mousedown', mousedown);
   canvas.addEventListener('mousemove', mousemove);
   canvas.addEventListener('mouseup', mouseup);
+});
 
-};
+
+
 var mousedown = function(e) {
   rect.startX = e.pageX - this.offsetLeft;
   rect.startY = e.pageY- this.offsetTop;
@@ -112,36 +122,20 @@ var drawRect = function() {
 };
 	
 
-
-function drawEllipse(context, x, y, w, h, e){
-			var x = Math.min(xPos, e.pageX);
-					y = Math.min(yPos, e.pageY),
-					w = Math.abs(xPos - e.pageX),
-					h = Math.abs(yPos - e.pageY),
-
-
-
-  			 	kappa = .5522848;
-      		ox = (w / 2) * kappa, // control point offset horizontal
-      		oy = (h / 2) * kappa, // control point offset vertical
-      		xe = x + w,           // x-end
-      		ye = y + h,           // y-end
-      		xm = x + w / 2,       // x-middle
-      		ym = y + h / 2;       // y-middle
- 
-  context.beginPath();
-  context.moveTo(x, ym);
-  context.bezierCurveTo(x, ym - oy, xm - ox, y, xm, y);
-  context.bezierCurveTo(xm + ox, y, xe, ym - oy, xe, ym);
-  context.bezierCurveTo(xe, ym + oy, xm + ox, ye, xm, ye);
-  context.bezierCurveTo(xm - ox, ye, x, ym + oy, x, ym);
-  context.closePath();
-  context.stroke();
+var clickOpen =function(){
+  document.getElementById('file').click();
 };
 
+document.getElementById('file').addEventListener('change', function(e){
+  var temp = URL.createObjectURL(e.target.files[0]);
+  var image = new Image();
+  image.src = temp;
 
- // To save my canvas image as data url.
-var dataURL = canvas.toDataURL();
+  image.addEventListener('load', function(){
+    context.drawImage(image, 0, 0)
+  });
 
-//to set canvasImg image src to dataURL so it can be saved as an image
-document.getElementById('canvasImg').src = dataURL;
+});
+
+
+
